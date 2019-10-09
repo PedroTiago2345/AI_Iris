@@ -1,6 +1,7 @@
+#Incio do Exerciceo
 iris <-iris
 
-irisRandom
+#randomiza
 idxs <- sample(1:nrow(iris),as.integer(0.8*nrow(iris)))
 treino<-iris[idxs,]
 teste<- iris[-idxs,]
@@ -16,6 +17,23 @@ teste <-teste[,-5]
 #package de KNN
 install.packages("FNN")
 library(FNN)
-resultado <- knn(treino,teste,classesTreino,k=1)
-resultado
+resultadoTreino <- knn(treino,teste,classesTreino,k=1)
+resultadoTreino
 
+
+Acuracia <- function(resultado,classe){
+
+  count <- 0
+  valor <- 0
+  
+  for (i in resultado) {
+    count <- count + 1
+    if(i == classe[count])
+      valor <- valor + 1
+  }
+  
+  acuracia<-(valor/count) *100
+  acuracia
+}
+
+Acuracia(resultadoTreino,classesTeste)
