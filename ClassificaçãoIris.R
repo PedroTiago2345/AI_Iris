@@ -20,7 +20,7 @@ library(FNN)
 resultadoTreino <- knn(treino,teste,classesTreino,k=1)
 resultadoTreino
 
-
+#função de checar acuracia
 Acuracia <- function(resultado,classe){
 
   count <- 0
